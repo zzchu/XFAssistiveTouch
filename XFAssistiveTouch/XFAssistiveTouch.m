@@ -141,6 +141,9 @@
     //根据计算好的位置执行动画
     [UIView animateWithDuration:duration animations:^{
         _assistiveWindow.center = viewPoint;
+        if (CGRectGetMinY(_assistiveWindow.frame) < 0) {
+            _assistiveWindow.center = CGPointMake(viewPoint.x, [XFATLayoutAttributes itemImageWidth] / 2);
+        }
     } completion:^(BOOL finished) {
         //将_assistiveWindowRect变为移动后的位置并恢复用户操作
         _assistiveWindowPoint = _assistiveWindow.center;

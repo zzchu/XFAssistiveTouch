@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XFATNavigationController : UIViewController
 
 - (instancetype)initWithRootViewController:(nullable XFATViewController *)viewController NS_DESIGNATED_INITIALIZER;
-
+- (void)setContentItem:(XFATItemView *)itemView;
 - (void)spread;
 - (void)shrink;
 - (void)pushViewController:(XFATViewController *)viewController atPisition:(XFATPosition *)position;

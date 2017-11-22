@@ -46,6 +46,7 @@
         rootViewController.navigationController = self;
         _viewControllers = [NSMutableArray arrayWithObject:rootViewController];
         _pushPosition = [NSMutableArray array];
+        _contentItem = [XFATItemView itemWithType:XFATItemViewTypeSystem];
     }
     return self;
 }
@@ -65,13 +66,17 @@
     _effectView.layer.masksToBounds = YES;
     [_contentView addSubview:_effectView];
     
-    _contentItem = [XFATItemView itemWithType:XFATItemViewTypeSystem];
+    
     _contentItem.center = _contentPoint;
     [self.view addSubview:_contentItem];
     
     self.view.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
     self.contentAlpha = [XFATLayoutAttributes inactiveAlpha];
     self.contentPoint = CGPointMake([XFATLayoutAttributes itemImageWidth] / 2, [XFATLayoutAttributes itemImageWidth] / 2);
+}
+
+- (void)setContentItem:(XFATItemView *)itemView {
+    _contentItem = itemView;
 }
 
 - (void)viewDidLoad {
