@@ -118,32 +118,25 @@
     CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     CGRect endKeyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
 
-    //根据实时位置计算于键盘的间距
-    CGFloat yOffset = endKeyboardRect.origin.y - CGRectGetMaxY(_assistiveWindow.frame);
-
-    //如果键盘弹起给_coverWindowPoint赋值
-    if (endKeyboardRect.origin.y < CGRectGetHeight([UIScreen mainScreen].bounds)) {
-        _coverWindowPoint = _assistiveWindowPoint;
+    CGPoint viewPoint = _assistiveWindow.center;;
+    if (endKeyboardRect.origin.y == 0) {
+        //键盘在屏幕上边框
+        if (CGRectGetMaxY(endKeyboardRect) > CGRectGetMinY(_assistiveWindow.frame)) {
+            viewPoint.y = CGRectGetHeight([UIScreen mainScreen].bounds) - ([XFATLayoutAttributes itemImageWidth] / 2);
+        }
+        //初始状态
+        if (CGRectGetHeight(endKeyboardRect) >= CGRectGetHeight([UIScreen mainScreen].bounds)) {
+            viewPoint.y = ([XFATLayoutAttributes itemImageWidth] / 2);
+        }
+    } else if (endKeyboardRect.origin.y < CGRectGetHeight([UIScreen mainScreen].bounds)){
+        //键盘在屏幕下边框
+        if (CGRectGetMinY(endKeyboardRect) <  CGRectGetMaxY(_assistiveWindow.frame)) {
+            viewPoint.y = ([XFATLayoutAttributes itemImageWidth] / 2);
+        }
     }
-
-    //根据间距计算移动后的位置viewPoint
-    CGPoint viewPoint = _assistiveWindow.center;
-    viewPoint.y += yOffset;
-    //如果viewPoint在原位置之下,将viewPoint变为原位置
-    if (viewPoint.y > _coverWindowPoint.y) {
-        viewPoint.y = _coverWindowPoint.y;
-    }
-    //如果_assistiveWindow被移动,将viewPoint变为移动后的位置
-    if (CGPointEqualToPoint(_coverWindowPoint, CGPointZero)) {
-        viewPoint.y = _assistiveWindow.center.y;
-    }
-
     //根据计算好的位置执行动画
     [UIView animateWithDuration:duration animations:^{
         _assistiveWindow.center = viewPoint;
-        if (CGRectGetMinY(_assistiveWindow.frame) < 0) {
-            _assistiveWindow.center = CGPointMake(viewPoint.x, [XFATLayoutAttributes itemImageWidth] / 2);
-        }
     } completion:^(BOOL finished) {
         //将_assistiveWindowRect变为移动后的位置并恢复用户操作
         _assistiveWindowPoint = _assistiveWindow.center;
