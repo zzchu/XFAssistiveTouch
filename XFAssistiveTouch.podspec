@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         	= "XFAssistiveTouch"
-  s.version      	= "0.0.1"
+  s.version      	= "0.0.4"
   s.summary      	= "Assistive button the same as iOS AssistiveTouch"
   s.homepage     	= "https://github.com/xiaofei86/XFAssistiveTouch"
   s.license      	= { :type => "MIT", :file => "LICENSE" }
