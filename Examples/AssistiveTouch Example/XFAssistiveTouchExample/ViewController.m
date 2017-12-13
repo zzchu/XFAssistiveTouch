@@ -26,6 +26,8 @@
     
     XFAssistiveTouch *assistiveTouch = [XFAssistiveTouch sharedInstance];
     assistiveTouch.delegate = self;
+//    assistiveTouch.navigationController.setContentItem(XFATItemView.item(with: viewLayer))
+    [assistiveTouch.navigationController setContentItem:[XFATItemView itemWithImage:[UIImage imageNamed:@"xtMenu.png"]]];
     [assistiveTouch showAssistiveTouch];
 }
 

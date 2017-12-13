@@ -20,6 +20,9 @@
 		AF1AB9DA1D96B9C7007486D0 /* XFATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9D91D96B9C7007486D0 /* XFATRootViewController.m */; };
 		AF1AB9E01D98F115007486D0 /* XFAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1AB9DF1D98F115007486D0 /* XFAssistiveTouch.m */; };
 		AFA97EE91D9C26CC0077221C /* XFATLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA97EE81D9C26CC0077221C /* XFATLayoutAttributes.m */; };
+		F045003A1FB2AA3300E0B77A /* app-icon-balsamiq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F04500391FB2AA3300E0B77A /* app-icon-balsamiq@2x.png */; };
+		F04500571FB5A66C00E0B77A /* iconfont-zz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F04500561FB5A66C00E0B77A /* iconfont-zz.ttf */; };
+		F0F86E181FDF750B006281AA /* xtMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F86E171FDF750B006281AA /* xtMenu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		AF1AB9DF1D98F115007486D0 /* XFAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAssistiveTouch.m; sourceTree = "<group>"; };
 		AFA97EE71D9C26CC0077221C /* XFATLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFATLayoutAttributes.h; sourceTree = "<group>"; };
 		AFA97EE81D9C26CC0077221C /* XFATLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATLayoutAttributes.m; sourceTree = "<group>"; };
+		F04500391FB2AA3300E0B77A /* app-icon-balsamiq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-balsamiq@2x.png"; sourceTree = "<group>"; };
+		F04500561FB5A66C00E0B77A /* iconfont-zz.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iconfont-zz.ttf"; path = "font_demo/iconfont-zz.ttf"; sourceTree = "<group>"; };
+		F0F86E171FDF750B006281AA /* xtMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xtMenu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,9 @@
 		AF1AB9B21D968649007486D0 /* XFAssistiveTouchExample */ = {
 			isa = PBXGroup;
 			children = (
+				F0F86E171FDF750B006281AA /* xtMenu.png */,
+				F04500561FB5A66C00E0B77A /* iconfont-zz.ttf */,
+				F04500391FB2AA3300E0B77A /* app-icon-balsamiq@2x.png */,
 				AF1AB9B61D968649007486D0 /* AppDelegate.h */,
 				AF1AB9B71D968649007486D0 /* AppDelegate.m */,
 				AF1AB9B91D968649007486D0 /* ViewController.h */,
@@ -154,8 +163,8 @@
 				TargetAttributes = {
 					AF1AB9AF1D968649007486D0 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 975UV32A32;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 3VVS2357WF;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -185,6 +194,9 @@
 				AF1AB9C31D968649007486D0 /* LaunchScreen.storyboard in Resources */,
 				AF1AB9C01D968649007486D0 /* Assets.xcassets in Resources */,
 				AF1AB9BE1D968649007486D0 /* Main.storyboard in Resources */,
+				F04500571FB5A66C00E0B77A /* iconfont-zz.ttf in Resources */,
+				F0F86E181FDF750B006281AA /* xtMenu.png in Resources */,
+				F045003A1FB2AA3300E0B77A /* app-icon-balsamiq@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +336,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 975UV32A32;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3VVS2357WF;
 				INFOPLIST_FILE = XFAssistiveTouchExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xyf.XFAssistiveTouchExample;
+				PRODUCT_BUNDLE_IDENTIFIER = XT.XTEditorServiceDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3428ff0d-187c-4409-9995-c6cc2ff18ee0";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -341,14 +355,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 975UV32A32;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3VVS2357WF;
 				INFOPLIST_FILE = XFAssistiveTouchExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xyf.XFAssistiveTouchExample;
+				PRODUCT_BUNDLE_IDENTIFIER = XT.XTEditorServiceDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3428ff0d-187c-4409-9995-c6cc2ff18ee0";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

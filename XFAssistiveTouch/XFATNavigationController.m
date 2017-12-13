@@ -64,6 +64,7 @@
     _effectView.frame = _contentView.bounds;
     _effectView.layer.cornerRadius = [XFATLayoutAttributes cornerRadius];
     _effectView.layer.masksToBounds = YES;
+    _effectView.alpha = 0;
     [_contentView addSubview:_effectView];
     
     
@@ -139,6 +140,7 @@
     [UIView animateWithDuration:[XFATLayoutAttributes animationDuration] animations:^{
         _contentView.frame = [XFATLayoutAttributes contentViewSpreadFrame];
         _effectView.frame = _contentView.bounds;
+        _effectView.alpha = 1;
         _contentView.alpha = 1;
         _contentItem.center = [XFATPosition positionWithCount:count index:count - 1].center;
         _contentItem.alpha = 0;
@@ -166,6 +168,7 @@
         _contentView.frame = CGRectMake(0, 0, [XFATLayoutAttributes itemImageWidth], [XFATLayoutAttributes itemImageWidth]);
         _contentView.center = _contentPoint;
         _effectView.frame = _contentView.bounds;
+        _effectView.alpha = 0;
         _contentItem.alpha = 1;
         _contentItem.center = _contentPoint;
     } completion:^(BOOL finished) {
