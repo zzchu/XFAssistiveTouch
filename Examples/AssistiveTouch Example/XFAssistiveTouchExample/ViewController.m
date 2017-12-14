@@ -27,7 +27,17 @@
     XFAssistiveTouch *assistiveTouch = [XFAssistiveTouch sharedInstance];
     assistiveTouch.delegate = self;
 //    assistiveTouch.navigationController.setContentItem(XFATItemView.item(with: viewLayer))
-    [assistiveTouch.navigationController setContentItem:[XFATItemView itemWithImage:[UIImage imageNamed:@"xtMenu.png"]]];
+    
+    UIImage *image = [UIImage imageNamed:@"xtMenu.png"];
+//    CGSize size = CGSizeMake(MIN(image.size.width, [XFATLayoutAttributes itemWidth]), MIN(image.size.height, [XFATLayoutAttributes itemWidth]));
+    CALayer *tlayer = [CALayer layer];
+    tlayer.contents = (__bridge id)image.CGImage;
+    tlayer.bounds = CGRectMake(0, 0,  [XFATLayoutAttributes itemImageWidth],  [XFATLayoutAttributes itemImageWidth]);
+//    tlayer.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+//    tlayer.bounds = CGRectMake(0, 0, MIN(size.width, [XFATLayoutAttributes itemImageWidth]), MIN(size.height, [XFATLayoutAttributes itemImageWidth]));
+//    return [[self alloc] initWithLayer:layer];
+    
+    [assistiveTouch.navigationController setContentItem:[XFATItemView itemWithLayer:tlayer]];
     [assistiveTouch showAssistiveTouch];
 }
 
