@@ -77,8 +77,15 @@
 }
 
 - (void)setContentItem:(XFATItemView *)itemView {
+    if ( _contentItem != nil ) {
+        [_contentItem removeFromSuperview];
+    }
+    
+    _contentItem.center = _contentPoint;
     _contentItem = itemView;
+    [self.view addSubview:_contentItem];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
