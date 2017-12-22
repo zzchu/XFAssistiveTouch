@@ -89,6 +89,15 @@
     [self.view addGestureRecognizer:shrinkGestureRecognizer];
     [self.contentItem addGestureRecognizer:panGestureRecognizer];
 }
+#pragma mark - Keep orientation
+
+- (BOOL)shouldAutorotate {
+    return true;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 #pragma mark - Accessor
 
